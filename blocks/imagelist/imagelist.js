@@ -13,8 +13,12 @@ async function loadFragment(path) {
 
 export default async function decorate(block) {
   [...block.children].forEach(async (div) => {
+    console.log("div: " + div);
     const link = div.querySelector('div>div>a');
+    console.log("link: " + link);
     const path = link ? link.getAttribute('href') : block.textContent.trim();
+    console.log("path: " +path);
+    if (path) {
     const doc = await loadFragment(path);
     div.remove();
 
@@ -40,6 +44,7 @@ export default async function decorate(block) {
     a.appendChild(card);
 
     block.appendChild(a);
+  }
   });
 }
  
