@@ -1,7 +1,7 @@
 import { getMetadata } from '../../scripts/aem.js';
 
 async function loadFragment(path) {
-  if (path && path.startsWith('/')) {
+  if (path ) {
     const resp = await fetch(path);
     if (resp.ok) {
       const parser = new DOMParser();
@@ -13,8 +13,12 @@ async function loadFragment(path) {
 
 export default async function decorate(block) {
   [...block.children].forEach(async (div) => {
+    
     const link = div.querySelector('div>div>a');
-    const path = link ? link.getAttribute('href') : block.textContent.trim();
+    
+    const path = link ? link.getAttribute('href') : div.textContent.trim();
+    
+    
     const doc = await loadFragment(path);
     div.remove();
 
@@ -40,6 +44,7 @@ export default async function decorate(block) {
     a.appendChild(card);
 
     block.appendChild(a);
+ 
   });
 }
  
