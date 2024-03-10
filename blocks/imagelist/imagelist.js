@@ -1,7 +1,7 @@
 import { getMetadata } from '../../scripts/aem.js';
 
 async function loadFragment(path) {
-  if (path && path.startsWith('/')) {
+  if (path ) {
     const resp = await fetch(path);
     if (resp.ok) {
       const parser = new DOMParser();
