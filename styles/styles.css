@@ -20,8 +20,10 @@
   --text-color: black;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
-  --heading-font-family: var(--body-font-family);
+/* fonts */
+--body-font-family: "wknd-icon-font" !important;
+--heading-font-family: adobe-clean-regular, arial, helvetica, sans-serif;
+
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
