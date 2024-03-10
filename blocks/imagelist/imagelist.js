@@ -16,7 +16,7 @@ export default async function decorate(block) {
     console.log(div.outerHTML);
     const link = div.querySelector('div>div>a');
     console.log("link: " + link);
-    const path = link ? link.getAttribute('href') : block.textContent.trim();
+    const path = link ? link.getAttribute('href') : div.textContent.trim();
     console.log("path: " +path);
     if (path) {
     const doc = await loadFragment(path);
